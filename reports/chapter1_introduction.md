@@ -1,0 +1,17 @@
+# Chapter 1: Introduction
+
+## 1.1 Background and Motivation
+Browser extensions play a vital role in the modern web ecosystem, providing users with customized functionalities ranging from ad-blocking to grammar checking. However, this convenience comes with significant security risks. Extensions often require broad permissions, such as the ability to read and change data on all visited websites. While most extensions are initially developed with benign intentions, they can become severe security threats through a process known as malicious ownership transactions. In such scenarios, legitimate extensions are sold or transferred to malicious actors who silently push updates to inject malware, hijack search queries, or steal sensitive user data. Because the extension was originally trusted, these attacks often bypass initial security reviews and remain undetected by users until significant damage has occurred.
+
+## 1.2 Problem Statement
+Traditional security mechanisms, such as signature-based malware detection and manual store reviews, struggle to identify sophisticated threats originating from trusted browser extensions. These mechanisms primarily focus on code scanning, which malicious actors can easily bypass using code obfuscation or dynamic payload fetching. Furthermore, when ownership changes hands, the new developers can exploit the existing trust and permissions granted by the user. There is a critical need for an automated, intelligent system capable of detecting these threats post-installation by monitoring how the extension actually behaves over time, rather than relying solely on static code analysis.
+
+## 1.3 Project Goals
+This project aims to develop a proactive, machine-learning-based system that detects malicious ownership transactions early by modeling the temporal behavioral drift of browser extensions. The primary objectives are:
+1. **Behavioral Data Collection:** To monitor and collect temporal behavioral data of browser extensions, specifically focusing on metrics like permission changes, network request frequency, and API interactions.
+2. **Behavior Modeling & Drift Detection:** To utilize unsupervised machine learning techniques (such as Isolation Forest) to model normal extension behavior and accurately identify significant deviations (behavioral drift) that indicate malicious updates.
+3. **Early Alert System:** To implement a user-friendly dashboard that acts as an early warning system, flagging suspicious extensions and alerting users or administrators before a breach can occur.
+4. **Performance Evaluation:** To rigorously test the system using simulated and real-world behavioral datasets, evaluating its effectiveness through metrics such as accuracy, precision, and recall.
+
+## 1.4 Scope of the Project
+The project is structured across two semesters. The scope for Phase 1 (Semester 7) includes conducting a literature review, developing the data collection strategy, preprocessing the data, and successfully training a baseline anomaly detection model (Isolation Forest) to prove the viability of behavioral analysis. A prototype dashboard is also developed to visualize the model's outputs. The scope for Phase 2 (Semester 8) will extend this work by integrating continuous, automated data tracking (e.g., via a companion extension or proxy) and implementing advanced temporal models like Long Short-Term Memory (LSTM) networks to track sequential behavioral drift over extended periods.
